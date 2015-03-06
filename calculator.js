@@ -43,11 +43,14 @@ function performAnotherCalc() {
   }
 }
 
-
 var run = true;
 
 while (run) {
   var userSelection = sget("Please select from the list (Enter number):\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square root");
+  if (Number(userSelection) != userSelection) {
+    console.log("Invalid Selection!");
+    continue;
+  }
 
   switch (Number(userSelection)) {
     case 1:
@@ -55,7 +58,6 @@ while (run) {
       var num1 = getValidNumber();
       var num2 = getValidNumber();
       console.log("%s + %s = %s", num1, num2, add(num1, num2));
-      run = performAnotherCalc();
       break;
 
     case 2:
@@ -63,7 +65,6 @@ while (run) {
       var num1 = getValidNumber();
       var num2 = getValidNumber();
       console.log("%s - %s = %s", num1, num2, subtract(num1, num2));
-      run = performAnotherCalc();
       break;
 
     case 3:
@@ -71,7 +72,6 @@ while (run) {
       var num1 = getValidNumber();
       var num2 = getValidNumber();
       console.log("%s * %s = %s", num1, num2, multiply(num1, num2));
-      run = performAnotherCalc();
       break;
 
     case 4:
@@ -79,14 +79,13 @@ while (run) {
       var num1 = getValidNumber();
       var num2 = getValidNumber();
       console.log("%s / %s = %s", num1, num2, divide(num1, num2));
-      run = performAnotherCalc();
       break;
 
     case 5:
       console.log("Square Root");
       var num = getValidNumber();
       console.log("Square Root of %s is: %s", num, squareRoot(num1, num2));
-      run = performAnotherCalc();
       break;
   }
+  run = performAnotherCalc();
 }
