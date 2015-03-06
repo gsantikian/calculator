@@ -43,9 +43,14 @@ function performAnotherCalc() {
   }
 }
 
+function clearScreen() {
+  console.log('\033[2J');
+}
+
 var run = true;
 
 while (run) {
+  clearScreen();
   var userSelection = sget("Please select from the list (Enter number):\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square root");
   if (Number(userSelection) != userSelection) {
     console.log("Invalid Selection!");
@@ -84,7 +89,7 @@ while (run) {
     case 5:
       console.log("Square Root");
       var num = getValidNumber();
-      console.log("Square Root of %s is: %s", num, squareRoot(num1, num2));
+      console.log("Square Root of %s is: %s", num, squareRoot(num));
       break;
   }
   run = performAnotherCalc();
